@@ -1,0 +1,13 @@
+/var/www/html/accenture-pageobjct/src/test/java/PageObjects/SendQuote.java
+/var/www/html/accenture-pageobjct/src/test/java/PageObjects/Insurant.java
+/var/www/html/accenture-pageobjct/src/test/java/PageObjects/LoginPage.java
+/var/www/html/accenture-pageobjct/src/test/java/TestRunner.java
+/var/www/html/accenture-pageobjct/src/test/java/Utilities/BaseClass.java
+/var/www/html/accenture-pageobjct/src/test/java/StepDefinitions/Hooks.java
+/var/www/html/accenture-pageobjct/src/test/java/PageObjects/HomePage.java
+/var/www/html/accenture-pageobjct/src/test/java/StepDefinitions/LoginSteps.java
+/var/www/html/accenture-pageobjct/src/test/java/PageObjects/Vehichle.java
+/var/www/html/accenture-pageobjct/src/test/java/PageObjects/Main.java
+/var/www/html/accenture-pageobjct/src/test/java/Utilities/PropertiesReader.java
+/var/www/html/accenture-pageobjct/src/test/java/PageObjects/Price.java
+/var/www/html/accenture-pageobjct/src/test/java/PageObjects/Product.java
