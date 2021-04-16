@@ -15,30 +15,28 @@ public class Price extends BaseClass {
         super(driver, wait);
         PageFactory.initElements(driver, this);
     }
-
-    private final String headerMainMenu = "//div[@class='row main-menu-merchant']";
-    private final String cartMenu = "//div[@class='navbar-cart']//a[@href='/cart']";
-    private final String nav = "[nav = 'idealsteps-nav']";    
+	@FindBy (css = "#priceTable > tfoot > tr > th.group > label:nth-child(4) > span")
+	@CacheLookup
+	private WebElement choosePrice;
+	
+	@FindBy (id = "nextsendquote")
+	@CacheLookup
+	private WebElement nextSendQuote;
+	 
+    public boolean priceOptionPageIsDisplayed() {
+        WaitUntilElementVisible(choosePrice);
+        choosePrice.isDisplayed();
+        return true;
+    }
+    public void selectChoosePriceData() {
+        WaitUntilElementVisible(choosePrice);
+        choosePrice.isEnabled();
+        choosePrice.click();
+	}
     
-    @FindBy (id = nav + "[id = 'entervehicledata']")
-    @CacheLookup
-    private WebElement vehiclePage;
-    
-    @FindBy (id = nav + "[id = 'enterinsurantdata']")
-    @CacheLookup
-    private WebElement insurantPage;
-    
-    @FindBy (id = nav + "[id = 'enterproductdata']")
-    @CacheLookup
-    private WebElement productPage;
-    
-    @FindBy (id = nav + "[id = 'selectpriceoption']")
-    @CacheLookup
-    private WebElement pricePage;
-    
-    @FindBy (id = nav + "[id = 'sendquote']")
-    @CacheLookup
-    private WebElement sendPage;
-    
-
+    public void fillNextSendQuoteData() {
+        WaitUntilElementVisible(nextSendQuote);
+        nextSendQuote.isEnabled();
+        nextSendQuote.click();
+	}
 }

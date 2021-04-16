@@ -16,29 +16,84 @@ public class SendQuote extends BaseClass {
         PageFactory.initElements(driver, this);
     }
 
-    private final String headerMainMenu = "//div[@class='row main-menu-merchant']";
-    private final String cartMenu = "//div[@class='navbar-cart']//a[@href='/cart']";
-    private final String nav = "[nav = 'idealsteps-nav']";    
     
-    @FindBy (id = nav + "[id = 'entervehicledata']")
+    @FindBy (id ="email")
     @CacheLookup
-    private WebElement vehiclePage;
+    private WebElement email;
     
-    @FindBy (id = nav + "[id = 'enterinsurantdata']")
+    @FindBy (id = "phone")
     @CacheLookup
-    private WebElement insurantPage;
+    private WebElement phone;
     
-    @FindBy (id = nav + "[id = 'enterproductdata']")
+    @FindBy (id = "username")
     @CacheLookup
-    private WebElement productPage;
+    private WebElement username;
     
-    @FindBy (id = nav + "[id = 'selectpriceoption']")
+    @FindBy (id = "password")
     @CacheLookup
-    private WebElement pricePage;
+    private WebElement password;
     
-    @FindBy (id = nav + "[id = 'sendquote']")
+    @FindBy (id = "confirmpassword")
     @CacheLookup
-    private WebElement sendPage;
+    private WebElement confirmpassword;
+    
+    @FindBy (id = "sendemail")
+    @CacheLookup
+    private WebElement sendemail;
 
+    @FindBy(css = "body > div.sweet-alert.showSweetAlert.visible > h2")
+    @CacheLookup
+    private WebElement menssage;
+    
+    public boolean sendQuotePageIsDisplayed() {
 
+        WaitUntilElementVisible(email);
+        email.isDisplayed();
+        WaitUntilElementVisible(phone);
+        phone.isDisplayed();
+        WaitUntilElementVisible(username);
+        username.isDisplayed();
+        WaitUntilElementVisible(password);
+        password.isDisplayed();
+        WaitUntilElementVisible(confirmpassword);
+        confirmpassword.isDisplayed();
+        WaitUntilElementVisible(sendemail);
+        sendemail.isDisplayed();
+        return true;
+    }
+    
+   public void fillEmailData() {
+	    WaitUntilElementVisible(email);
+	    email.isEnabled();
+	    email.sendKeys("test@test.com");
+    }
+   public void fillUserNameData() {
+	    WaitUntilElementVisible(username);
+	    username.isEnabled();
+	    username.sendKeys("JOAOSILVA");
+   }
+   public void fillPasswordData() {
+	    WaitUntilElementVisible(password);
+	    password.isEnabled();
+	    password.sendKeys("Test123");
+   }
+
+   public void fillConfirmpasswordData() {
+	    WaitUntilElementVisible(confirmpassword);
+	    confirmpassword.isEnabled();
+	    confirmpassword.sendKeys("Test123");
+    }
+   public void clickSendInButton() {
+       WaitUntilElementVisible(sendemail);
+       sendemail.isEnabled();
+       sendemail.click();
+   }
+	public boolean checkMenssage(){
+		System.out.println("------------------começo \n");
+		WaitUntilElementVisible(menssage);
+		System.out.println("------------------chegou1 \n");
+		menssage.isDisplayed();
+		return true;
+	}
+    
 }

@@ -20,4 +20,5 @@ public abstract class BaseClass {
 
         wait.until(ExpectedConditions.visibilityOf(element));
     }
+
 }

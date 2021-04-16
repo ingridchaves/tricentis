@@ -1,8 +1,11 @@
 package StepDefinitions;
 
-import PageObjects.HomePage;
-import PageObjects.LoginPage;
+
 import PageObjects.Vehichle;
+import PageObjects.Insurant;
+import PageObjects.Product;
+import PageObjects.Price;
+import PageObjects.SendQuote;
 import Utilities.PropertiesReader;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -25,23 +28,24 @@ public class FormSteps {
 
   @Given("^que eu esteja no forumulário de Enter Vehicle Data$")
   public void que_eu_esteja_no_forumulário_de_Enter_Vehicle_Data() throws Throwable {
-	  System.out.println("------------------ 1 \n");
 	  Vehichle vehichle = new Vehichle(driver, wait);
 	  vehichle.vehicleDataPageIsDisplayed();
-	  System.out.println("------------------ 3 \n");
   }
 
   @When("^eu clico em next enviando o formulário da aba Enter Vehicle Data preenchido$")
   public void eu_clico_em_next_enviando_o_formulário_da_aba_Enter_Vehicle_Data_preenchido() throws Throwable {
-	  System.out.println("------------------ 5 \n");
 	  Vehichle vehichle = new Vehichle(driver, wait);
-	  System.out.println("-------------------2/n");
 	  vehichle.fillMakeData();
+	  vehichle.fillModelData();
+	  vehichle.fillCylinderCapacityData();
 	  vehichle.fillPerformanceData();
 	  vehichle.fillDateOfManufactureData();
 	  vehichle.filllistPriceData();
 	  vehichle.fillnumberOfSeatsData();
+	  vehichle.fillNumberOfSeatsMotorcycleData();
 	  vehichle.fillfuelData();
+	  vehichle.fillPayloadData();
+	  vehichle.fillCotalWeightData();
 	  vehichle.filllicensePlateNumberData();
 	  vehichle.fillannualMileageData();
 	  vehichle.clickSignInButton();
@@ -49,33 +53,64 @@ public class FormSteps {
 	  
   }
 
-  @When("^eu clico em \"([^\"]*)\" enviando o formulário da aba Enter Insurant Data preenchido$")
-  public void eu_clico_em_enviando_o_formulário_da_aba_Enter_Insurant_Data_preenchido(String arg1) throws Throwable {
-      // Write code here that turns the phrase above into concrete actions
-      throw new PendingException();
+  @When("^eu clico em next enviando o formulário da aba Enter Insurant Data preenchido$")
+  public void eu_clico_em_enviando_o_formulário_da_aba_Enter_Insurant_Data_preenchido() throws Throwable {
+	  Insurant insurant = new Insurant(driver, wait);
+	  insurant.insurantDataPageIsDisplayed();
+	  insurant.fillFirstNameData();
+	  insurant.fillLastNameData();
+	  insurant.fillBirthdateData();
+	  insurant.filGenderMaleData();	  
+	  insurant.fillStreetAddressData();
+	  insurant.fillCountryData();
+	  insurant.fillZipCodeData();
+	  insurant.fillCityData();
+	  insurant.fillOcupationData();
+	  insurant.filHobbiesData();
+	  insurant.fillWebSiteData();
+	  insurant.clickSignInButton();
   }
 
-  @When("^eu clico em \"([^\"]*)\" enviando o formulário da aba Enter Product Data preenchido$")
-  public void eu_clico_em_enviando_o_formulário_da_aba_Enter_Product_Data_preenchido(String arg1) throws Throwable {
-      // Write code here that turns the phrase above into concrete actions
-      throw new PendingException();
+  @When("^eu clico em next enviando o formulário da aba Enter Product Data preenchido$")
+  public void eu_clico_em_enviando_o_formulário_da_aba_Enter_Product_Data_preenchido() throws Throwable {
+	  Product product= new Product(driver, wait);
+	  product.productDataPageIsDisplayed();
+	  product.fillStartDateData();
+	  product.fillInsuranceSumyData();
+	  product.fillMeritratingData();
+	  product.fillDamageInsuranceData();
+	  product.fillOptionalProductsData();
+	  product.fillCourtesyCarData();
+	  product.clickSignInButton();
   }
 
-  @When("^eu clico em \"([^\"]*)\" enviando o formulário da aba Select Price Option preenchido$")
-  public void eu_clico_em_enviando_o_formulário_da_aba_Select_Price_Option_preenchido(String arg1) throws Throwable {
-      // Write code here that turns the phrase above into concrete actions
-      throw new PendingException();
+  @When("^eu clico em next enviando o formulário da aba Select Price Option preenchido$")
+  public void eu_clico_em_enviando_o_formulário_da_aba_Select_Price_Option_preenchido() throws Throwable {
+	  Price price= new Price(driver, wait);
+	  System.out.println("------------------ 1");
+	  price.priceOptionPageIsDisplayed();
+	  System.out.println("------------------ 2");
+	  price.selectChoosePriceData();
+	  System.out.println("------------------ 3");
+	  price.fillNextSendQuoteData();
   }
 
-  @When("^eu clico em \"([^\"]*)\" enviando o formulário da aba Send Quote preenchido$")
-  public void eu_clico_em_enviando_o_formulário_da_aba_Send_Quote_preenchido(String arg1) throws Throwable {
-      // Write code here that turns the phrase above into concrete actions
-      throw new PendingException();
+  @When("^eu clico em next enviando o formulário da aba Send Quote preenchido$")
+  public void eu_clico_em_enviando_o_formulário_da_aba_Send_Quote_preenchido() throws Throwable {
+	  SendQuote quote= new SendQuote(driver, wait);
+	  quote.sendQuotePageIsDisplayed();
+	  quote.fillEmailData();
+	  quote.fillUserNameData();
+	  quote.fillPasswordData();
+	  quote.fillConfirmpasswordData();
+	  quote.clickSendInButton();
+	  
   }
 
-  @Then("^a mensagem “Sending e-mail success!” é exibida na tela$")
+  @Then("^a mensagem Sending e-mail success! é exibida na tela$")
   public void a_mensagem_Sending_e_mail_success_é_exibida_na_tela() throws Throwable {
-      // Write code here that turns the phrase above into concrete actions
-      throw new PendingException();
+	  SendQuote quote= new SendQuote(driver, wait);
+	  System.out.println("------------------chegou2 \n");
+	  quote.checkMenssage();
   }
 }
